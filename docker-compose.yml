@@ -7,7 +7,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
-      - JELLYFIN_PublishedServerUrl=http://ubuntu1 #optional
+      - JELLYFIN_PublishedServerUrl=http://$HOSTNAME #optional
     volumes:
       - config:/config
       - /mnt/14TB/Movies:/Movies
