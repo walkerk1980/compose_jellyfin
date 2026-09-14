@@ -20,4 +20,12 @@ services:
     restart: unless-stopped
 volumes:
   config:
+    # The config volume lives on the big disk, not on / (moved 2026-09-14).
+    # NOTE: the directory must exist and be owned by PUID/PGID (1000:1000)
+    # before the volume is first created, or the app cannot write to it.
+    driver: local
+    driver_opts:
+      type: none
+      device: /mnt/HG12TB/docker/jellyfin/config
+      o: bind
 
